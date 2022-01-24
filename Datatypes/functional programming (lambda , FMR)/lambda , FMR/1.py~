@@ -1,0 +1,68 @@
+"""
+ Creation User defined filter map reduce functions
+ Date : 30.12.2021
+"""
+
+from functools import reduce    # for reduce function
+#--------------------------------------------------		
+
+CheckEven = lambda no : (no%2 == 0)
+Increament = lambda no : no+2
+Addition = lambda a,b : a+b
+
+"""--------------------------------------------------	
+		This is a userdefind filter function
+--------------------------------------------------"""
+
+def filterX(fun_name,data):
+	filtered_list = []
+	for no in data:
+		Ret = fun_name(no)
+		if(Ret == True):
+			filtered_list.append(no)		
+	return filtered_list
+
+"""--------------------------------------------------	
+		This is a userdefind map function
+--------------------------------------------------"""
+
+def mapX(fun_name,data):
+	mapped_list = []
+	for no in data:
+		Ret = fun_name(no)
+		mapped_list.append(Ret)
+	return mapped_list
+	
+"""--------------------------------------------------	
+		This is a userdefind reduce function
+--------------------------------------------------"""
+
+def reduceX(fun_name,data):
+	Result = 0
+	for no in data:
+		Result = fun_name(Result,no)
+	return Result
+
+#--------------------------------------------------		
+
+def main():
+	data = [5,7,6,8,4]
+	print("Originnal data : ",data)
+	
+	#--------- filter(function,list)
+	newdata = list(filterX(CheckEven,data))
+	print("Data after filter : ",newdata)
+		
+	#--------- map(function,list)
+	incrementdata = list(mapX(Increament,newdata))
+	print("Data after map : ",incrementdata)
+
+	#--------- reduce(function,list)
+	Ret = reduce(Addition,incrementdata)
+	print("Data after reduce : ",Ret)
+	
+#--------------------------------------------------			
+if __name__ == "__main__":
+	main()
+
+
