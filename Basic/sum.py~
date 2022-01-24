@@ -1,0 +1,15 @@
+# Date : 18.12.2021
+# Addition of two numbers
+
+
+
+
+def main():
+	no1 = 0
+	no2 = 0
+	
+	print(type(no1))
+
+if __name__ == "__main__":
+	main()
+	
