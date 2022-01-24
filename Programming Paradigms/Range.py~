@@ -1,0 +1,5 @@
+# Date : 18.12.2021
+# Addition of two numbers
+# scripting programming 
+
+print(range(5))
