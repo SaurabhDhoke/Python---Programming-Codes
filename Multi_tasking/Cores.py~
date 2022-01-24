@@ -1,0 +1,4 @@
+import multiprocessing
+import os
+
+print("Total cores Available : ",multiprocessing.cpu_count())
